@@ -4,9 +4,7 @@ INSTALL=install -m 400
 GIT=git
 
 all: utils.o libutils.a
-	#$(GIT) commit -a -m "build"`$(GIT) rev-list --count HEAD`
-git:
-	$(GIT) commit -a -m "build"`$(GIT) rev-list --count HEAD`
+
 utils.o: utils.c
 	$(CC) -c utils.c
 libutils.a: utils.o
@@ -14,5 +12,7 @@ libutils.a: utils.o
 clean:
 	rm -f utils.o lizutils.a
 install:
+	mkdir -p $(HOME)/lib
 	$(INSTALL) libutils.a $(HOME)/lib
+	mkdir -p $(HOME)/include
 	$(INSTALL) utils.h $(HOME)/include

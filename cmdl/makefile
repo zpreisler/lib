@@ -4,9 +4,7 @@ INSTALL=install -m 400
 GIT=git
 
 all: cmdl.o libcmdl.a
-	#$(GIT) commit -a -m "build"`$(GIT) rev-list --count HEAD`
-git:
-	$(GIT) commit -a -m "build"`$(GIT) rev-list --count HEAD`
+
 cmdl.o: cmdl.c
 	$(CC) -c cmdl.c -I $(HOME)/include -L $(HOME)/lib -lutils
 libcmdl.a: cmdl.o
